@@ -19,6 +19,10 @@ export default {
       fontFamily: {
         cfont: ["Ubuntu", "sans-serif"],
       },
+      backgroundImage: {
+        desktopSidebar: "url('./images/bg-sidebar-desktop.svg')",
+        mobileSidebar: "url('./images/bg-sidebar-mobile.svg')",
+      },
     },
   },
   plugins: [],

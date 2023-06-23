@@ -5,8 +5,8 @@ type NavigatorProps = {
 function StepNavigator({ currentStepIndex }: NavigatorProps) {
   return (
     <div
-      className="absolute top-0 -left-1/2 md:left-0 translate-x-1/2 md:translate-x-0 w-full md:bg-[url('./images/bg-sidebar-desktop.svg')] 
-      flex flex-row gap-x-10 md:gap-0 justify-center md:justify-start md:block bg-[url('./images/bg-sidebar-mobile.svg')] 
+      className="absolute top-0 -left-1/2 md:left-0 translate-x-1/2 md:translate-x-0 w-full md:bg-desktopSidebar 
+      flex flex-row gap-x-10 md:gap-0 justify-center md:justify-start md:block bg-mobileSidebar 
       bg-no-repeat bg-cover bg-center rounded-md px-8 py-14 md:w-1/3 md:relative"
     >
       {["your info", "select plan", "add-ons", "summary"].map((item, index) => {
