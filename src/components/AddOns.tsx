@@ -20,6 +20,7 @@ type Schema = z.infer<typeof schema>;
 
 export default function AddOns() {
   const [selectedAddOns, setSelectedAddOns] = useState<(AddOn | string)[]>([]);
+  console.log(selectedAddOns);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const { setData, goNext, data } = useGlobalContext();
 
@@ -40,7 +41,7 @@ export default function AddOns() {
     });
   };
 
-  const { control, handleSubmit, watch } = useForm<Schema>({
+  const { control, handleSubmit } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: { addOns: [] },
   });
