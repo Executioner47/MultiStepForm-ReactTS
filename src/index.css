@@ -8,4 +8,7 @@
   .backgroundCheck:has(input:checked) {
     @apply ring-1 -ring--clr-Purplish-Blue -bg--clr-Magnolia/70;
   }
+  .h-dynamic-screen {
+    height: 100dvh;
+  }
 }

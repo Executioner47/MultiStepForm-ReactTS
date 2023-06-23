@@ -36,7 +36,7 @@ function App() {
   }, [goNext, goBack]);
 
   return (
-    <div className="-bg--clr-Pastel-Blue h-screen flex justify-center items-center p-3">
+    <div className="-bg--clr-Pastel-Blue h-dynamic-screen flex justify-center items-center p-3">
       <div
         className="-mt-80 md:mt-0 md:-bg--clr-White rounded-lg sm:p-4 gap-4 md:gap-20 flex md:flex-row flex-col
        justify-center md:min-w-[766px] md:h-[547px] lg:min-w-[900px] lg:h-[580px]"
