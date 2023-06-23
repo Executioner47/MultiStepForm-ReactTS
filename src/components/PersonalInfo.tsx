@@ -41,10 +41,10 @@ export default function PersonalInfo() {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
-        <h1 className="font-bold text-3xl -text--clr-Marine-Blue mb-1">
+        <h1 className="font-bold text-2xl md:text-3xl -text--clr-Marine-Blue mb-1">
           Personal info
         </h1>
-        <p className="-text--clr-Cool-Gray text-lg mb-6">
+        <p className="-text--clr-Cool-Gray text-sm md:text-lg mb-6">
           Please provide your name, email address and phone number.
         </p>
         <div className="input flex flex-col">
@@ -59,7 +59,7 @@ export default function PersonalInfo() {
           <input
             type="text"
             placeholder="Fares"
-            className=" bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4  font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
+            className=" -text--clr-Blue bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4 placeholder:text-sm  font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
             autoFocus={true}
             {...register("name")}
           />
@@ -76,7 +76,7 @@ export default function PersonalInfo() {
           <input
             type="email"
             placeholder="example@gmail.com"
-            className=" bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4 font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
+            className=" -text--clr-Blue bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4 placeholder:text-sm  font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
             {...register("email")}
           />
         </div>
@@ -92,7 +92,7 @@ export default function PersonalInfo() {
           <input
             type="text"
             placeholder="e.g. +1 234 567 890"
-            className="placeholder:-text--clr-Cool-Gray bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4 font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
+            className="placeholder:-text--clr-Cool-Gray -text--clr-Blue bg-transparent ring-1 ring-gray-200 rounded-md px-4 py-1.5 mb-4 placeholder:text-sm  font-bold focus:outline-none focus:ring-1 focus:-ring--clr-Purplish-Blue"
             {...register("number")}
           />
         </div>

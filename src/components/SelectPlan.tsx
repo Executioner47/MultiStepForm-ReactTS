@@ -77,14 +77,14 @@ export default function SelectPlan() {
 
   return (
     <form
-      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-72 p-7 md:p-0 rounded-lg z-20"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-96 p-7 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
-        <h1 className="font-bold text-3xl -text--clr-Marine-Blue mb-1">
+        <h1 className="font-bold text-2xl md:text-3xl -text--clr-Marine-Blue mb-1">
           Select your plan
         </h1>
-        <div className="-text--clr-Cool-Gray text-lg mb-6">
+        <div className="-text--clr-Cool-Gray text-sm md:text-lg md:mb-6">
           You have the option of monthly or yearly billing.
           <span>
             {errors && errors.plan && (
@@ -93,7 +93,7 @@ export default function SelectPlan() {
           </span>
         </div>
 
-        <div className="cards flex flex-col md:flex-row gap-5 md:items-center mt-10">
+        <div className="cards flex flex-col md:flex-row gap-3 md:gap-5 md:items-center mt-5 md:mt-10">
           {myData.plan.map((item) => {
             return (
               <div className="flex-1" key={item.id}>
@@ -105,21 +105,21 @@ export default function SelectPlan() {
                   {...register("plan")}
                 />
                 <label
-                  className={`p-4 flex flex-row md:flex-col gap-x-4 md:gap-0 border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
+                  className={`p-3 md:p-4 flex flex-row md:flex-col gap-x-4 md:gap-0 border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
                   htmlFor={item.name}
                   key={item.id}
                 >
                   <img
                     src={item.image}
-                    className="w-10 h-10 object-cover"
+                    className="w-8 md:w-10 h-8 md:h-10 object-cover"
                     alt={item.name}
                     aria-hidden="true"
                   />
                   <div className="info md:mt-9">
-                    <h3 className="font-semibold -text--clr-Marine-Blue text-lg">
+                    <h3 className="font-semibold -text--clr-Marine-Blue text-sm md:text-lg">
                       {item.name}
                     </h3>
-                    <div className="price -text--clr-Cool-Gray">
+                    <div className="price -text--clr-Cool-Gray text-xs md:text-sm">
                       +$
                       {watch("isYearly")
                         ? item.price.yearly
@@ -152,7 +152,7 @@ export default function SelectPlan() {
             }`}
           >
             <div
-              className={`text-sm mr-5 font-bold -text--clr-Marine-Blue group-[.checked]:-text--clr-Cool-Gray`}
+              className={`text-xs md:text-sm mr-5 font-bold -text--clr-Marine-Blue group-[.checked]:-text--clr-Cool-Gray`}
             >
               Monthly
             </div>
@@ -164,7 +164,7 @@ export default function SelectPlan() {
               ></div>
             </div>
             <div
-              className={`text-sm ml-5 font-bold group-[.checked]:-text--clr-Marine-Blue -text--clr-Cool-Gray`}
+              className={`text-xs md:text-sm ml-5 font-bold group-[.checked]:-text--clr-Marine-Blue -text--clr-Cool-Gray`}
             >
               Yearly
             </div>

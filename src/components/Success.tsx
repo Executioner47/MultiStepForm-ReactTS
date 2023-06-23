@@ -61,10 +61,10 @@ export default function Success() {
           />
         </svg>
       </div>
-      <h1 className="-text--clr-Marine-Blue font-bold text-4xl mt-6 mb-4">
+      <h1 className="-text--clr-Marine-Blue font-bold text-2xl md:text-4xl mt-6 mb-4">
         Thank You
       </h1>
-      <p className="-text--clr-Cool-Gray md:w-[440px] text-center">
+      <p className="-text--clr-Cool-Gray md:w-[440px] text-center text-sm md:text-lg">
         Thanks for confirming your subscription! We hope you have fun using our
         platform. If you ever need support please feel free to email us at
         support@loremgaming.com.

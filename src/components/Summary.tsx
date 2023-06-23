@@ -29,35 +29,35 @@ export default function Summary() {
   return (
     <form
       action=""
-      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-80 p-7 md:p-0 rounded-lg z-20"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-72 p-6 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit}
     >
       <div>
-        <h1 className="font-bold text-3xl -text--clr-Marine-Blue mb-1">
+        <h1 className="font-bold text-2xl md:text-3xl -text--clr-Marine-Blue mb-1">
           Finishing up
         </h1>
-        <p className="-text--clr-Cool-Gray text-lg mb-6">
+        <p className="-text--clr-Cool-Gray text-sm md:text-lg mb-6">
           Double-check everything look OK before confirming.
         </p>
-        <div className="info -bg--clr-Magnolia p-4 rounded-lg">
+        <div className="info -bg--clr-Magnolia p-3 md:p-4 rounded-lg">
           <div
             className={`flex justify-between items-center ${
               data?.addOns.length === 0 ? " " : "pb-8 mb-4 border-b-2"
             } border-gray-200`}
           >
             <div className="left font-bold">
-              <div className="summaryName">
+              <div className="summaryName text-sm md:text-lg">
                 {data?.plan?.name} (
                 {data?.plan?.isYearly ? "Yearly" : "Monthly"})
               </div>
               <button
-                className="-text--clr-Cool-Gray underline text-sm capitalize"
+                className="-text--clr-Cool-Gray underline text-xs md:text-sm capitalize"
                 onClick={() => setCurrentStepIndex(1)}
               >
                 change
               </button>
             </div>
-            <div className="right font-bold">
+            <div className="right font-bold text-xs md:text-sm">
               $
               {data?.plan?.isYearly
                 ? data?.plan?.price.yearly + "/yr"
@@ -71,8 +71,10 @@ export default function Summary() {
                 className="onlineServ flex justify-between items-center mb-2"
                 key={index}
               >
-                <div className="name -text--clr-Cool-Gray text-sm">{item}</div>
-                <div className="price font-semibold">
+                <div className="name -text--clr-Cool-Gray text-xs md:text-sm">
+                  {item}
+                </div>
+                <div className="price font-semibold text-xs md:text-sm">
                   +
                   {data?.plan?.isYearly
                     ? addOn?.price.yearly
@@ -83,11 +85,11 @@ export default function Summary() {
             );
           })}
         </div>
-        <div className="total flex justify-between items-center mb-2 p-4">
+        <div className="total flex justify-between items-center mb-2 p-2 md:p-4">
           <div className="name -text--clr-Cool-Gray text-sm ">
             Total (per {data?.plan?.isYearly ? "Yearly" : "Monthly"})
           </div>
-          <div className="price font-bold text-xl -text--clr-Purplish-Blue">
+          <div className="price font-bold text-lg md:text-xl -text--clr-Purplish-Blue">
             +{totalPrice}
             {data?.plan?.isYearly ? "/yr" : "/mo"}
           </div>

@@ -54,21 +54,21 @@ export default function AddOns() {
   return (
     <form
       action=""
-      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-96 p-7 md:p-0 rounded-lg z-20"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-72 p-7 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
-        <h1 className="font-bold text-3xl -text--clr-Marine-Blue mb-1">
+        <h1 className="font-bold text-2xl md:text-3xl -text--clr-Marine-Blue mb-1">
           Pick add-ons
         </h1>
-        <p className="-text--clr-Cool-Gray text-lg mb-6">
+        <p className="-text--clr-Cool-Gray text-sm md:text-lg mb-3 md:mb-6">
           Add-ons help enhance your gaming experience.
         </p>
 
         {myData.addOns.map((item, index) => {
           return (
             <div
-              className={`backgroundCheck p-3 rounded-lg flex items-center gap-x-5 ring-2 ring-gray-200 select-none mb-5 ${
+              className={`backgroundCheck p-2 md:p-3 rounded-lg flex items-center gap-x-5 ring-2 ring-gray-200 select-none mb-5 ${
                 activeCardIndex === index ? "bg-primary" : ""
               }`}
               key={item.id}
@@ -100,15 +100,17 @@ export default function AddOns() {
               />
               <label
                 htmlFor={item.name}
-                className="info w-full cursor-pointer"
+                className="info w-full cursor-pointer selection:bg-purple-300 selection:text-purple-900"
                 onClick={() => handleCardClick(item.id - 1)}
               >
-                <h3 className="font-semibold -text--clr-Marine-Blue text-lg">
+                <h3 className="font-semibold -text--clr-Marine-Blue text-sm md:text-lg">
                   {item.name}
                 </h3>
-                <div className="price -text--clr-Cool-Gray">{item.details}</div>
+                <div className="price -text--clr-Cool-Gray text-xs md:text-sm">
+                  {item.details}
+                </div>
               </label>
-              <div className="price -text--clr-Purplish-Blue font-semibold">
+              <div className="price -text--clr-Purplish-Blue font-semibold text-xs md:text-sm">
                 +${data?.plan.isYearly ? item.price.yearly : item.price.monthly}
                 /{data?.plan.isYearly ? "yr" : "mo"}
               </div>
