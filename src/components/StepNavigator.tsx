@@ -4,7 +4,11 @@ type NavigatorProps = {
 
 function StepNavigator({ currentStepIndex }: NavigatorProps) {
   return (
-    <div className="xl:bg-[url('./images/bg-sidebar-desktop.svg')] bg-[url('./images/bg-sidebar-mobile.svg')] bg-no-repeat bg-cover bg-center rounded-lg px-8 py-10 w-1/3 relative">
+    <div
+      className="absolute top-0 -left-1/2 md:left-0 translate-x-1/2 md:translate-x-0 w-full md:bg-[url('./images/bg-sidebar-desktop.svg')] 
+      flex flex-row gap-x-10 md:gap-0 justify-center md:justify-start md:block bg-[url('./images/bg-sidebar-mobile.svg')] 
+      bg-no-repeat bg-cover bg-center rounded-md px-8 py-14 md:w-1/3 md:relative"
+    >
       {["your info", "select plan", "add-ons", "summary"].map((item, index) => {
         return (
           <div className="flex items-center gap-x-4 mb-5" key={index}>
@@ -17,7 +21,7 @@ function StepNavigator({ currentStepIndex }: NavigatorProps) {
             >
               {index + 1}
             </div>
-            <div className="info uppercase">
+            <div className="info uppercase hidden md:block">
               <div className="-text--clr-Cool-Gray text-sm">
                 Step {index + 1}
               </div>

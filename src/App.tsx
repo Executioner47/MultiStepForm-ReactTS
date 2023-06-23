@@ -5,6 +5,7 @@ import StepNavigator from "./components/StepNavigator";
 import Summary from "./components/Summary";
 import { useEffect } from "react";
 import { useGlobalContext } from "./utils/Context";
+import Success from "./components/Success";
 
 function App() {
   const { goNext, goBack, currentStepIndex } = useGlobalContext();
@@ -35,8 +36,11 @@ function App() {
   }, [goNext, goBack]);
 
   return (
-    <div className="-bg--clr-Light-Gray  h-screen flex justify-center items-center">
-      <div className="-bg--clr-White rounded-lg p-4 gap-20 flex justify-center min-w-[900px] h-[580px]">
+    <div className="-bg--clr-Light-Gray h-screen flex justify-center items-center p-3">
+      <div
+        className="-mt-80 md:mt-0 md:-bg--clr-White rounded-lg sm:p-4 gap-4 md:gap-20 flex md:flex-row flex-col
+       justify-center md:min-w-[766px] md:h-[547px] lg:min-w-[900px] lg:h-[580px]"
+      >
         <StepNavigator currentStepIndex={currentStepIndex} />
         {(() => {
           switch (currentStepIndex) {
@@ -48,6 +52,8 @@ function App() {
               return <AddOns />;
             case 3:
               return <Summary />;
+            case 4:
+              return <Success />;
             default:
               return null;
           }

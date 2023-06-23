@@ -11,9 +11,26 @@ interface AppProviderProps {
   children: ReactNode;
 }
 
+interface MyData {
+  info: {
+    name: string;
+    email: string;
+    number: string;
+  };
+  plan: {
+    name: string;
+    isYearly: boolean;
+    price: {
+      monthly: number;
+      yearly: number;
+    };
+  };
+  addOns: string[];
+}
+
 interface AppContextValue {
-  data: null;
-  setData: Dispatch<SetStateAction<null>>;
+  data: MyData | null;
+  setData: Dispatch<SetStateAction<MyData | null>>;
   currentStepIndex: number;
   setCurrentStepIndex: Dispatch<SetStateAction<number>>;
   goNext: () => void;
@@ -31,14 +48,13 @@ const AppContext = createContext<AppContextValue>({
   goToStep: () => {},
 });
 
-const AppProvider = ({ children }: AppProviderProps) => {
-  const [data, setData] = useState<null>(null);
+const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
+  const [data, setData] = useState<MyData | null>(null);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  console.log(data);
 
   function goNext() {
     setCurrentStepIndex((i) => {
-      if (i >= 3) return i;
+      if (i >= 4) return i;
       return i + 1;
     });
   }

@@ -1,10 +1,10 @@
 import { useGlobalContext } from "../utils/Context";
 
 export default function Buttons() {
-  const { goNext, goBack, currentStepIndex } = useGlobalContext();
+  const { goBack, currentStepIndex } = useGlobalContext();
 
   return (
-    <div className="flex">
+    <div className="flex absolute bottom-0 md:relative bg-white lg:p-0 p-4 lg:bg-transparent w-full ">
       {currentStepIndex !== 0 && (
         <button
           role="btn"
@@ -15,22 +15,13 @@ export default function Buttons() {
           Go Back
         </button>
       )}
-      {currentStepIndex !== 3 ? (
+      {currentStepIndex !== 4 && (
         <input
           role="btn"
           type="submit"
           value={"Next Step"}
           className="ms-auto cursor-pointer -bg--clr-Marine-Blue hover:-bg--clr-Blue transition-all px-7 py-2.5 rounded-lg text-white text-lg"
         />
-      ) : (
-        <button
-          role="btn"
-          type="button"
-          className="ms-auto -bg--clr-Marine-Blue hover:-bg--clr-Purplish-Blue/50 transition-all px-7 py-2.5 rounded-lg text-white text-lg"
-          onClick={goNext}
-        >
-          Confirm
-        </button>
       )}
     </div>
   );

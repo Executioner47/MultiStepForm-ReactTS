@@ -1,10 +1,10 @@
-import { useState } from "react";
 import Buttons from "./Buttons";
 import myData from "../data.json";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useGlobalContext } from "../utils/Context";
+import { useEffect } from "react";
 
 const plans = {
   Arcade: {
@@ -34,48 +34,69 @@ const plans = {
 };
 
 const schema = z.object({
-  plan: z.enum(["Arcade", "Larger Storage", "Pro"]),
+  plan: z
+    .enum(["Arcade", "Larger Storage", "Pro"])
+    .nullable()
+    .refine((value) => value !== null, {
+      message: "Please select a plan",
+    }),
   isYearly: z.boolean(),
 });
 
 type Schema = z.infer<typeof schema>;
 
 export default function SelectPlan() {
-  const { setData, goNext } = useGlobalContext();
+  const { data, setData, goNext } = useGlobalContext();
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
-    defaultValues: { plan: "Arcade", isYearly: false },
   });
 
+  console.log(errors);
+
+  useEffect(() => {
+    if (data?.plan) {
+      setValue("plan", data.plan.name as "Arcade" | "Larger Storage" | "Pro");
+      setValue("isYearly", data.plan.isYearly);
+    }
+  }, [data, setValue]);
+
   const onSubmit = (data: Schema) => {
+    const selectedPlan = data.plan as keyof typeof plans;
     setData((prevValue: any) => ({
       ...prevValue,
-      plan: { ...plans[data.plan], isYearly: data.isYearly },
+      plan: { ...plans[selectedPlan], isYearly: data.isYearly },
     }));
     goNext();
   };
 
   return (
     <form
-      className="w-3/5 mt-8 flex flex-col justify-between"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-52 p-7 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
         <h1 className="font-bold text-3xl -text--clr-Marine-Blue mb-1">
           Select your plan
         </h1>
-        <p className="-text--clr-Cool-Gray text-lg mb-6">
+        <div className="-text--clr-Cool-Gray text-lg mb-6">
           You have the option of monthly or yearly billing.
-        </p>
-        <div className="cards flex gap-5 items-center mt-10">
+          <span>
+            {errors && errors.plan && (
+              <p className="text-red-500">{errors.plan.message}</p>
+            )}
+          </span>
+        </div>
+
+        <div className="cards flex flex-col md:flex-row gap-5 md:items-center mt-10">
           {myData.plan.map((item) => {
             return (
-              <div className="flex-1">
+              <div className="flex-1" key={item.id}>
                 <input
                   type="radio"
                   id={item.name}
@@ -84,7 +105,7 @@ export default function SelectPlan() {
                   {...register("plan")}
                 />
                 <label
-                  className={`p-4 flex flex-col border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
+                  className={`p-4 flex flex-row md:flex-col gap-x-4 md:gap-0 border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
                   htmlFor={item.name}
                   key={item.id}
                 >
@@ -94,7 +115,7 @@ export default function SelectPlan() {
                     alt={item.name}
                     aria-hidden="true"
                   />
-                  <div className="info mt-9">
+                  <div className="info md:mt-9">
                     <h3 className="font-semibold -text--clr-Marine-Blue text-lg">
                       {item.name}
                     </h3>
@@ -116,6 +137,7 @@ export default function SelectPlan() {
             );
           })}
         </div>
+
         <div>
           <input
             type="checkbox"
