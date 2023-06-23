@@ -7,7 +7,7 @@ export default {
         "--clr-Blue": "#174a8b",
         "--clr-Marine-Blue": "hsl(213, 96%, 18%)",
         "--clr-Purplish-Blue": "hsl(243, 100%, 62%)",
-        "--clr-Pastel-Blue": "hsl(228, 100%, 84%)",
+        "--clr-Pastel-Blue": "hsl(215, 100%, 97%)",
         "--clr-Light-Blue": "hsl(206, 94%, 87%)",
         "--clr-Strawberry-Red": "hsl(354, 84%, 57%)",
         "--clr-Cool-Gray": "hsl(231, 11%, 63%)",
