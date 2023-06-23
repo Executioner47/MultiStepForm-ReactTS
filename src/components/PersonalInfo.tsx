@@ -37,7 +37,7 @@ export default function PersonalInfo() {
   return (
     <form
       action=""
-      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center -bg--clr-White md:bg-transparent mt-16 p-7 md:p-0 rounded-lg z-20"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center -bg--clr-White md:bg-transparent mt-72 p-7 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>

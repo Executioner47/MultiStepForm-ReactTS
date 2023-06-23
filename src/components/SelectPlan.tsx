@@ -77,7 +77,7 @@ export default function SelectPlan() {
 
   return (
     <form
-      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-52 p-7 md:p-0 rounded-lg z-20"
+      className="md:w-3/5 md:mt-8 flex flex-col justify-between items-center md:items-stretch -bg--clr-White md:bg-transparent mt-72 p-7 md:p-0 rounded-lg z-20"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div>
