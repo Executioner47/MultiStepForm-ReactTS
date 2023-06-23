@@ -105,7 +105,7 @@ export default function SelectPlan() {
                   {...register("plan")}
                 />
                 <label
-                  className={`p-3 md:p-4 flex flex-row md:flex-col gap-x-4 md:gap-0 border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
+                  className={`p-3 md:p-4 removeLabelBG flex flex-row md:flex-col gap-x-4 md:gap-0 border cursor-pointer rounded-lg border-gray-300 peer-checked:ring-1 peer-checked:-ring--clr-Purplish-Blue peer-checked:-bg--clr-Magnolia/70 `}
                   htmlFor={item.name}
                   key={item.id}
                 >

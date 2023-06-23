@@ -100,7 +100,7 @@ export default function AddOns() {
               />
               <label
                 htmlFor={item.name}
-                className="info w-full cursor-pointer selection:bg-purple-300 selection:text-purple-900"
+                className="info w-full cursor-pointer removeLabelBG selection:bg-purple-300 selection:text-purple-900"
                 onClick={() => handleCardClick(item.id - 1)}
               >
                 <h3 className="font-semibold -text--clr-Marine-Blue text-sm md:text-lg">

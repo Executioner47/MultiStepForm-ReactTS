@@ -11,4 +11,7 @@
   .h-dynamic-screen {
     height: 100dvh;
   }
+  .removeLabelBG {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
